@@ -1,4 +1,9 @@
 {
   "name": "vuejs-sample",
-  "description": "Sample code of Vue.js"
+  "description": "Sample code of Vue.js",
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "gulp": "^3.8.7",
+    "gulp-coffee": "^2.1.1"
+  }
 }

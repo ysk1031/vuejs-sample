@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Vue.js sample</title>
+
+    <style>
+    body {
+      font-family: Helvetica Neue, Arial, sans-serif;
+    }
+    li.done {
+      text-decoration: line-through;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <h1>{{title | uppercase}}</h1>
+      <ul>
+        <li
+          v-repeat="todos"
+          v-on="click: done = !done"
+          class="{{done ? 'done' : ''}}">
+          {{content}}
+        </li>
+      </ul>
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.10.6/vue.min.js"></script>
+    <script src="../js/todo_example.js"></script>
+  </body>
+</html>

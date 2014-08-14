@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Vue.js sample</title>
+
+    <style>
+    #demo {
+      font-family:'Helvetica', Arial, sans-serif;
+      font-size: 13px;
+      padding-left: 15px;
+    }
+    a {
+      text-decoration: none;
+      color: #f66;
+    }
+    li {
+      line-height: 1.5em;
+      margin-bottom: 20px;
+    }
+    .author, .date {
+      font-weight: bold;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <h1>Latest Vue.js Commits</h1>
+      <input type="radio" name="branch" value="master" v-model="branch">
+      <label for="master">master</label>
+      <input type="radio" name="branch" value="dev" v-model="branch">
+      <label for="dev">dev</label>
+      <ul>
+        <li v-repeat="commits">
+          <a href="{{html_url}}" target="_blank" class="commit">
+            {{sha.slice(0, 7)}}
+          </a>
+          - <span class="message">{{commit.message | truncate}}</span>
+          <br>
+          by <span class="author">{{commit.author.date | formatDate}}</span>
+        </li>
+      </ul>
+    </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.10.6/vue.min.js"></script>
+    <script src="../js/github_commit.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Vue.js sample</title>
+    <style media="screen">
+    body {
+      font-family: Helvetica Neue, Arial, sans-serif;
+      font-size: 14px;
+      color: #444;
+    }
+    table {
+      border: 2px solid #42b983;
+      border-radius: 3px;
+      background-color: #fff;
+    }
+    th {
+      background-color: #42b983;
+      color: #fff;
+      cursor: pointer;
+    }
+    td {
+      background-color: #f3f3f3;
+    }
+    th, td {
+      padding: 10px 20px;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div id="demo">
+      <table v-component="grid" v-with="gridOptions">
+      </table>
+    </div>
+    <p style="font-size:12px;">
+      * You can click on the headers to sort the table.
+    </p>
+
+    <script type="text/x-template" id="grid-template">
+      <table>
+        <thead>
+          <tr>
+            <th v-repeat="columns" v-on="click:sortBy(key)">
+              {{header}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-repeat="data">
+            <td v-repeat="columns">
+              {{$parent[key]}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.10.6/vue.min.js"></script>
+    <script src="../js/grid_component.js"></script>
+  </body>
+</html>
